@@ -8,7 +8,7 @@ expect "localhost login: "
 send "root\r"
 
 expect "localhost:~# "
-send "setup-alpine -f scripts/setup-alpine.txt\r"
+send "setup-alpine -q\r"
 
 expect "alpine:~# "
 send "echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories\r"

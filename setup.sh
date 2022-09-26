@@ -38,7 +38,7 @@ HDASIZE=$HDASIZE_DEFAULT
 mkdir /tmp/matryoshka
 rm -rf /tmp/matryoshka/*
 alp qemu-img create -f qcow2 /tmp/matryoshka/matryoshka.qcow2 $HDASIZE
-alias alp="./alproot.sh -b /tmp/matryoshka/matryoshka.qcow2 "
+alias alp="./alproot.sh -b /tmp/matryoshka "
 
 # Setup VM
 alp ./scripts/setup-vm.sh

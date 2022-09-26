@@ -1,0 +1,3 @@
+[submodule "alproot"]
+	path = alproot
+	url = https://github.com/richarah/alproot.git

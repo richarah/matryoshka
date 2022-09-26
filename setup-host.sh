@@ -24,8 +24,9 @@ cp -r $MATRYOSHKA_ROOT/scripts env/scripts
 alp rm -rf /img /vm
 alp mkdir /img /vm
 
+alp setup-alpine -q
 alp apk update
-alp apk add qemu qemu-modules qemu-img qemu-system-x86_64 aria2 openrc libvirt-daemon openvpn expect
+alp apk add qemu qemu-modules qemu-img qemu-system-x86_64 aria2 openrc libvirt-daemon openvpn openssh expect
 alp rc-update add libvirtd
 
 # Get default image
@@ -36,8 +37,7 @@ alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 # Setup virtual disk
 # TODO: custom disk size
 HDASIZE=$HDASIZE_DEFAULT
-alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
+alp qemu-img create -f qcow2 /tmp/matryoshka.qcow2 $HDASIZE
 
 # Setup VM
-# TODO: headless setup-alpine
-alp qemu-system-x86_64 -m 4096 -netdev user,id=vm0 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -hda /tmp/matryoshka/hda.qcow2 -nographic
+alp ./scripts/setup-vm.sh

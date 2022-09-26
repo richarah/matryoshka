@@ -7,8 +7,9 @@ HDASIZE_DEFAULT="512M"
 rm -rf ../vm && mkdir ../vm
 
 # Alproot
-../alproot/alproot-setup.sh
-alias alp="../alproot/alproot.sh"
+cd ../alproot
+./alproot-setup.sh
+alias alp="./alproot.sh"
 
 # QEMU + deps (STRICTLY NO KVM)
 alp rm -rf /hda /img /vm

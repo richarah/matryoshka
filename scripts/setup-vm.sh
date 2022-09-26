@@ -8,5 +8,17 @@ expect "localhost login: "
 send "root\r"
 
 expect "localhost:~# "
-send "setup-alpine -q && echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && apk update && apk add docker openrc"
+send "setup-alpine -q\r"
+
+expect "alpine:~# "
+send "echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories\r"
+
+expect "alpine:~# "
+send "apk update\r"
+
+expect "alpine:~# "
+send "apk add docker openrc\r"
+
+expect "alpine:~# "
+send "poweroff\r"
 

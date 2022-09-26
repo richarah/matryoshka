@@ -37,7 +37,7 @@ alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 HDASIZE=$HDASIZE_DEFAULT
 mkdir /tmp/matryoshka
 rm -rf /tmp/matryoshka/*
-alp qemu-img create -f qcow2 /tmp/matryoshka/matryoshka.qcow2 $HDASIZE
+alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
 alias alp="./alproot.sh -b /tmp/matryoshka "
 
 # Setup VM

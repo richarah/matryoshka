@@ -4,7 +4,7 @@ MATRYOSHKA_ROOT=$PWD
 
 # TODO: build custom VM image for Matryoshka
 IMGURL_DEFAULT="https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.2-x86_64.iso"
-HDASIZE_DEFAULT="8G"
+HDASIZE_DEFAULT="4G"
 
 # Directory to be bind-mounted to VM root directory
 rm -rf vm && mkdir /vm

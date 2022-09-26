@@ -14,8 +14,7 @@ cd alproot
 ./alproot-setup.sh
 
 # Bind mount
-mkdir /tmp/matryoshka
-alias alp="./alproot.sh -b /tmp/matryoshka "
+alias alp="./alproot.sh -b /tmp/matryoshka.qcow2 "
 
 # Scripts (primarily for networking)
 cp -r $MATRYOSHKA_ROOT/scripts env/scripts

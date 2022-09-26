@@ -6,4 +6,4 @@ A self-contained QEMU installation via Alproot sandbox, allowing users to e.g. u
 
 ### What's in a name?
 
-When you set up a system in a system in a system, potentially for the purpose of encapsulating another system (a container), [there's only one name for it.](https://en.wikipedia.org/wiki/Matryoshka_doll)
+When you set up a system in a system in a system, potentially for the purpose of encapsulating another system (a container), [there's only one good name for it.](https://en.wikipedia.org/wiki/Matryoshka_doll)

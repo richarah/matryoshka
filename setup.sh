@@ -35,10 +35,11 @@ alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 # Setup virtual disk
 # TODO: custom disk size
 HDASIZE=$HDASIZE_DEFAULT
+rm -rf /tmp/matryoshka/
 mkdir /tmp/matryoshka
-rm -rf /tmp/matryoshka/*
+alias alp="./alproot.sh -b /tmp "
 alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
-alias alp="./alproot.sh -b /tmp/matryoshka "
 
 # Setup VM
+alias alp="./alproot.sh -b /tmp/matryoshka "
 alp ./scripts/setup-vm.sh

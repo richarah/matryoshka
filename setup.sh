@@ -21,8 +21,8 @@ alias alp="./alproot.sh -b /tmp/matryoshka "
 cp -r $MATRYOSHKA_ROOT/scripts env/scripts
 
 # QEMU + deps (STRICTLY NO KVM)
-alp rm -rf /hda /img /vm
-alp mkdir /hda /img /vm
+alp rm -rf /img /vm
+alp mkdir /img /vm
 
 alp apk update
 alp apk add qemu qemu-modules qemu-img qemu-system-x86_64 aria2 openrc libvirt-daemon openvpn
@@ -36,8 +36,8 @@ alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 # Setup virtual disk
 # TODO: custom disk size
 HDASIZE=$HDASIZE_DEFAULT
-alp qemu-img create -f qcow2 /hda/hda.qcow2 $HDASIZE
+alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
 
 # Setup VM
 # TODO: headless setup-alpine
-alp qemu-system-x86_64 -m 4096 -netdev user,id=vm0 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -hda /hda/hda.qcow2 -nographic
+alp qemu-system-x86_64 -m 4096 -netdev user,id=vm0 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -hda /tmp/matryoshka/hda.qcow2 -nographic -snapshot -append "console=ttyS0"

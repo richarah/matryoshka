@@ -10,4 +10,4 @@ A self-contained QEMU installation via Alproot sandbox, allowing users to e.g. u
 
 #### What's in a name?
 
-[There's only one good name](https://en.wikipedia.org/wiki/Matryoshka_doll) for a system in a system in a system, made specifically with encapsulation of another system (containers) in mind.
+[There's only one good name](https://en.wikipedia.org/wiki/Matryoshka_doll) for a system in a system *in a system*, especially one made specifically with encapsulation of another system (containers) in mind.

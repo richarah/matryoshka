@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # TODO: build custom VM image for Matryoshka
-IMG_URL_DEFAULT="https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.2-x86_64.iso"
+IMGURL_DEFAULT="https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.2-x86_64.iso"
 HDASIZE_DEFAULT="1G"
 
 rm -rf vm && mkdir vm
@@ -27,11 +27,11 @@ cd alproot
 # Get default image
 # TODO: be able to specify vdisk image size in args (-s?)
 # TODO: selection of non-default images: args via -u url or -f file.iso (TBD)
-./alproot.sh aria2c $IMG_URL_DEFAULT --dir=/img
+./alproot.sh aria2c $IMGURL_DEFAULT --dir=/img
 IMG=$(./alproot.sh ls -AU /img | head -1)
 
 HDA=/hda/hda.qcow2
 HDASIZE=$HDASIZE_DEFAULT
 
-./alproot.sh qemu-img create -f qcow2  $IMGSIZE
-./alproot.sh qemu-system-x86_64 -m 512 -nic user -boot d -cdrom FISH -hda $HDA -nographic
+./alproot.sh qemu-img create -f $HDA $HDASIZE
+./alproot.sh qemu-system-x86_64 -m 512 -nic user -boot d -cdrom $IMG -hda $HDA -nographic

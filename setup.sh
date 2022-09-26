@@ -36,4 +36,4 @@ alp qemu-img create -f qcow2 /hda/hda.qcow2 $HDASIZE
 
 # Setup VM
 # TODO: headless setup-alpine
-alp qemu-system-x86_64 -m 512 -net tap,vlan=0,ifname=tap0,script=./qemu-ifup -net nic,vlan0 -boot d -cdrom /img/image.iso -hda /hda/hda.qcow2 -nographic
+alp qemu-system-x86_64 -m 512 -net tap,vlan0=on,ifname=tap0,script=./qemu-ifup -net nic,vlan0 -boot d -cdrom /img/image.iso -hda /hda/hda.qcow2 -nographic

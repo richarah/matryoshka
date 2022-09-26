@@ -9,29 +9,25 @@ cd alproot
 
 
 # Alproot
-
 ./alproot-setup.sh
-
-# Cleanup
-# TODO: bind mount Alproot /vm to contents of VM
-./alproot.sh rm -rf /vm /hda /img
-./alproot.sh mkdir /vm /hda /img
+alias alp="./alproot.sh"
 
 # QEMU + deps (STRICTLY NO KVM)
-./alproot.sh apk update
-./alproot.sh apk add qemu qemu-img qemu-system-x86_64 aria2
+alp rm -rf /hda /img /vm
+alp mkdir /hda /img /vm
 
-
-# QEMU
+alp apk update
+alp apk add qemu qemu-img qemu-system-x86_64 aria2
 
 # Get default image
 # TODO: be able to specify vdisk image size in args (-s?)
 # TODO: selection of non-default images: args via -u url or -f file.iso (TBD)
-./alproot.sh aria2c $IMGURL_DEFAULT --dir=/img
-IMG=$(./alproot.sh ls -AU /img | head -1)
+alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 
-HDA=/hda/hda.qcow2
+# Setup virtual disk
 HDASIZE=$HDASIZE_DEFAULT
+alp qemu-img create -f qcow2 /hda/hda.qcow2 $HDASIZE
 
-./alproot.sh qemu-img create -f $HDA $HDASIZE
-./alproot.sh qemu-system-x86_64 -m 512 -nic user -boot d -cdrom $IMG -hda $HDA -nographic
+# Setup VM
+# TODO: headless setup-alpine
+alp qemu-system-x86_64 -m 512 -nic user -boot d -cdrom /img/image.iso -hda /hda/hda.qcow2 -nographic

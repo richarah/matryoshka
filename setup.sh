@@ -4,10 +4,11 @@
 IMGURL_DEFAULT="https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.2-x86_64.iso"
 HDASIZE_DEFAULT="512M"
 
-rm -rf ../vm && mkdir ../vm
+# Directory to be bind-mounted to VM root directory
+rm -rf vm && mkdir /vm
 
 # Alproot
-cd ../alproot
+cd alproot
 ./alproot-setup.sh
 alias alp="./alproot.sh"
 

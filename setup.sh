@@ -12,10 +12,13 @@ rm -rf vm && mkdir /vm
 # Alproot
 cd alproot
 ./alproot-setup.sh
-alias alp="./alproot.sh"
+
+# Bind mount
+mkdir /tmp/matryoshka
+alias alp="./alproot.sh -b /tmp/matryoshka "
 
 # Scripts (primarily for networking)
-cp $MATRYOSHKA_ROOT/scripts env/scripts
+cp -r $MATRYOSHKA_ROOT/scripts env/scripts
 
 # QEMU + deps (STRICTLY NO KVM)
 alp rm -rf /hda /img /vm

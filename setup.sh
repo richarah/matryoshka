@@ -14,7 +14,7 @@ cd alproot
 ./alproot-setup.sh
 
 # Bind mount
-alias alp="./alproot.sh -b /tmp/matryoshka.qcow2 "
+alias alp="./alproot.sh"
 
 # Scripts (primarily for networking)
 cp -r $MATRYOSHKA_ROOT/scripts env/scripts
@@ -37,6 +37,7 @@ alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 # TODO: custom disk size
 HDASIZE=$HDASIZE_DEFAULT
 alp qemu-img create -f qcow2 /tmp/matryoshka.qcow2 $HDASIZE
+alias alp="./alproot.sh -b /tmp/matryoshka.qcow2 "
 
 # Setup VM
 alp ./scripts/setup-vm.sh

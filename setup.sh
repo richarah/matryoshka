@@ -40,4 +40,4 @@ alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
 
 # Setup VM
 # TODO: headless setup-alpine
-alp qemu-system-x86_64 -m 4096 -netdev user,id=vm0 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -hda /tmp/matryoshka/hda.qcow2 -nographic -append "console=ttyS0"
+alp qemu-system-x86_64 -m 4096 -netdev user,id=vm0 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -hda /tmp/matryoshka/hda.qcow2 -nographic

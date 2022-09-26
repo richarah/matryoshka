@@ -22,7 +22,7 @@ alp rm -rf /hda /img /vm
 alp mkdir /hda /img /vm
 
 alp apk update
-alp apk add qemu qemu-modules qemu-img qemu-system-x86_64 aria2 libvirt-daemon openvpn
+alp apk add qemu qemu-modules qemu-img qemu-system-x86_64 aria2 openrc libvirt-daemon openvpn
 alp rc-update add libvirtd
 
 # Get default image
@@ -37,4 +37,4 @@ alp qemu-img create -f qcow2 /hda/hda.qcow2 $HDASIZE
 
 # Setup VM
 # TODO: headless setup-alpine
-alp qemu-system-x86_64 -m 512 -netdev user,id=vm0,hostfwd=tcp::8080-:80 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -hda /hda/hda.qcow2 -nographic
+alp qemu-system-x86_64 -m 512 -netdev user,id=vm0 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -hda /hda/hda.qcow2 -nographic

@@ -23,7 +23,6 @@ cp -r $MATRYOSHKA_ROOT/scripts env/scripts
 alp rm -rf /img /vm
 alp mkdir /img /vm
 
-alp setup-alpine -q
 alp apk update
 alp apk add qemu qemu-modules qemu-img qemu-system-x86_64 aria2 openrc libvirt-daemon openvpn openssh expect
 alp rc-update add libvirtd

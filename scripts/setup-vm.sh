@@ -1,13 +1,13 @@
 #!/usr/bin/expect -f
 
-#starts guest vm, run benchmarks, poweroff
-set timeout -1
+# 15 mins timeout
+set timeout 900
 
 #Start the guest VM
-spawn qemu -nographic -hda guest.disk
+#spawn qemu -nographic -hda guest.disk
+qemu-system-x86_64 -m 4096 -netdev user,id=vm0 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -hda /tmp/matryoshka/hda.qcow2 -nographic
 
 expect "login: "
-#Enter username
 send "root\r"
 
 expect "Password: "

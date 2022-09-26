@@ -25,7 +25,7 @@ alp rm -rf /img /vm
 alp mkdir /img /vm
 
 alp apk update
-alp apk add qemu qemu-modules qemu-img qemu-system-x86_64 aria2 openrc libvirt-daemon openvpn
+alp apk add qemu qemu-modules qemu-img qemu-system-x86_64 aria2 openrc libvirt-daemon openvpn expect
 alp rc-update add libvirtd
 
 # Get default image

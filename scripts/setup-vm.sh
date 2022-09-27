@@ -24,7 +24,7 @@ expect "alpine:~# "
 send "apk update\r"
 
 expect "alpine:~# "
-send "apk add docker openrc sfdisk syslinux\r"
+send "apk add docker openrc sfdisk syslinux kmod\r"
 
 
 # Setup data disk

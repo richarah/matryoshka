@@ -44,4 +44,3 @@ HDASIZE=$HDASIZE_DEFAULT
 # Setup VM
 # Using GNU Expect due to issues with Alpine's headless installation
 # alp ./scripts/setup-vm.sh
-alp ./scripts/do.exp $@

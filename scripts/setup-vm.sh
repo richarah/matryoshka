@@ -29,7 +29,10 @@ send "apk add docker openrc sfdisk syslinux\r"
 
 # Setup data disk
 expect "alpine:~# "
-send "setup-disk -q -m data /dev/sda\r"
+send "setup-disk -v -m data /dev/sda\r"
+
+expect -exact "WARNING: Erase the above disk(s) and continue? (y/n) [n] "
+send "y\r"
 
 expect "alpine:~# "
 send "poweroff\r"

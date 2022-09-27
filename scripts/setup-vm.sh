@@ -29,7 +29,7 @@ send "apk add docker openrc sfdisk syslinux\r"
 
 # Setup data disk
 expect "alpine:~# "
-send "disk-setup -q -m data /dev/sda\r"
+send "setup-disk -q -m data /dev/sda\r"
 
 expect "alpine:~# "
 send "poweroff\r"

@@ -32,11 +32,9 @@ expect "alpine:~# "
 send "disk-setup\r"
 
 expect -exact "Which disk(s) would you like to use? (or '?' for help or 'none') [sda] "
-sleep 1
-send "sda\r"
+send "\r"
 
 expect -exact "How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?' for help) [?] "
-sleep 1
 send "data\r"
 
 expect "alpine:~# "

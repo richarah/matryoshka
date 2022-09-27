@@ -34,13 +34,14 @@ alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 
 # Setup virtual disk
 # TODO: custom disk size
+# TODO: select persistent or live?
 HDASIZE=$HDASIZE_DEFAULT
-rm -rf /tmp/matryoshka/
-mkdir /tmp/matryoshka
-alias alp="./alproot.sh -b /tmp/matryoshka"
-alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
+# rm -rf /tmp/matryoshka/
+# mkdir /tmp/matryoshka
+# alias alp="./alproot.sh -b /tmp/matryoshka"
+# alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
 
 # Setup VM
 # Using GNU Expect due to issues with Alpine's headless installation
-alias alp="./alproot.sh -b /tmp/matryoshka"
-alp ./scripts/setup-vm.sh
+# alp ./scripts/setup-vm.sh
+alp ./scripts/do.exp $@

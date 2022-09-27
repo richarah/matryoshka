@@ -31,10 +31,10 @@ send "apk add docker openrc sfdisk syslinux\r"
 expect "alpine:~# "
 send "disk-setup\r"
 
-expect "Which disk(s) would you like to use? (or '?' for help or 'none') [sda] "
+expect -exact "Which disk(s) would you like to use? (or '?' for help or 'none') [sda] "
 send "sda\r"
 
-expect "How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?' for help) [?] "
+expect -exact "How would you like to use it? ('sys', 'data', 'crypt', 'lvm' or '?' for help) [?] "
 send "data\r"
 
 expect "alpine:~# "

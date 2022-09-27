@@ -29,11 +29,11 @@ send "apk add docker openrc sfdisk syslinux\r"
 
 # Setup data disk
 expect "alpine:~# "
-send "setup-disk -v -m data /dev/sda\r"
+send "yes |setup-disk -v -m sys /dev/sda\r"
 
 # Note: Square brackets signify command substitution in Tcl
-expect "WARNING: Erase the above disk(s) and continue? (y/n) \[n\] "
-send "y\r"
+#expect " WARNING: Erase the above disk(s) and continue? (y/n) \[n\] "
+#send "y\r"
 
 expect "alpine:~# "
 send "poweroff\r"

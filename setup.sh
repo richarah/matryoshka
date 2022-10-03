@@ -4,7 +4,7 @@ MATRYOSHKA_ROOT=$PWD
 
 # TODO: build custom VM image for Matryoshka
 IMGURL_DEFAULT="https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.2-x86_64.iso"
-HDASIZE_DEFAULT="16G"
+HDASIZE="16G"
 
 # Directory to be bind-mounted to VM root directory
 rm -rf vm && mkdir /vm
@@ -35,12 +35,7 @@ alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 # Setup virtual disk
 # TODO: custom disk size
 # TODO: select persistent or live?
-HDASIZE=$HDASIZE_DEFAULT
 # rm -rf /tmp/matryoshka/
 # mkdir /tmp/matryoshka
-# alias alp="./alproot.sh -b /tmp/matryoshka"
-# alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
-
-# Setup VM
-# Using GNU Expect due to issues with Alpine's headless installation
-# alp ./scripts/setup-vm.sh
+alias alp="./alproot.sh -b /tmp/matryoshka"
+alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE

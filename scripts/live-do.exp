@@ -1,0 +1,17 @@
+#!/usr/bin/expect -f
+set timeout -1
+
+
+# Setup VM
+spawn qemu-system-x86_64 -m 4096 -netdev user,id=vm0 -device e1000,netdev=vm0 -boot d -cdrom /img/image.iso -nographic
+
+# Root and headless install
+expect "localhost login: "
+send "root\r"
+expect "localhost:~# "
+send "setup-alpine -q\r"
+
+# Run stuff
+expect "alpine:~# "
+send "$argv && poweroff\r"
+

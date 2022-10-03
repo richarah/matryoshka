@@ -35,7 +35,7 @@ alp aria2c $IMGURL_DEFAULT --out=/img/image.iso
 # Setup virtual disk
 # TODO: custom disk size
 # TODO: select persistent or live?
-# rm -rf /tmp/matryoshka/
-# mkdir /tmp/matryoshka
+rm -rf /tmp/matryoshka/
+mkdir /tmp/matryoshka
 alias alp="./alproot.sh -b /tmp/matryoshka"
 alp qemu-img create -f qcow2 /tmp/matryoshka/hda.qcow2 $HDASIZE
